@@ -16,8 +16,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 			: project.description;
 
 	return (
-		<div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-6">
-			<h3 className="text-xl font-semibold text-gray-900 mb-2">
+		<div className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-250 p-6 group">
+			<h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-250">
 				{project.title}
 			</h3>
 
@@ -25,11 +25,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 				{shortDescription}
 			</p>
 
-			<div className="flex flex-wrap gap-2 mb-4">
+			<div className="flex flex-wrap gap-2 mb-6">
 				{project.technologies.map((tech) => (
 					<span
 						key={tech}
-						className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+						className="px-3 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full border border-primary-100"
 					>
 						{tech}
 					</span>
@@ -42,7 +42,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 						href={demoLink.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+						className="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 hover:scale-105 transition-all duration-250 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
 					>
 						View Demo
 					</a>
@@ -52,7 +52,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 						href={repoLink.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="border border-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors"
+						className="border border-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 hover:border-gray-300 hover:scale-105 transition-all duration-250 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
 					>
 						GitHub
 					</a>

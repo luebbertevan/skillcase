@@ -95,7 +95,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Test plan**:
     -   Import `projects` into `HomePage` and `console.log` length in dev.
 
-### ➡️ M4 — Home page with project list
+### ✅ M4 — Home page with project list
 
 -   **Purpose**: Create `HomePage` and a `ProjectCard` component to render projects.
 -   **Files**: `src/pages/HomePage/*`, `src/components/ProjectCard/*`, update `App.tsx` to render `HomePage`.
@@ -106,7 +106,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
     -   Temporarily set `projects` to empty; verify empty state.
     -   Restore data; cards render correctly.
 
-### M5 — Styling polish and theme tokens
+### ✅ M5 — Styling polish and theme tokens
 
 -   **Purpose**: Add Tailwind theme tokens (colors, spacing, typography); unify card spacing/hover.
 -   **Files**: `tailwind.config.ts`, refine component classNames.
@@ -115,7 +115,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Test plan**:
     -   Visual pass at 360px, 768px, 1280px widths.
 
-### M6 — Content authoring improvements
+### ➡️ M6 — Content authoring improvements
 
 -   **Purpose**: Improve how projects are authored (structured TS export; optionally support small markdown snippets later).
 -   **Files**: `src/data/projects.ts` and helper functions; optional `utils/format.ts`.
@@ -186,6 +186,7 @@ export interface ProjectLink {
 -   Backend/API: Persist user-curated projects.
 -   Individual project pages: Detailed project view with full description, screenshots, etc.
 -   Auth/multi-user
--	Favorite your projects that you want to show first. Maybe filter by date
+-   Favorite your projects that you want to show first. Maybe filter by date, etc.
+-   Add custom settings, themeing
 
 ---
