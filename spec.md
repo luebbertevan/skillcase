@@ -85,7 +85,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Test plan**:
     -   Inspect DOM in DevTools; header and footer present across the app.
 
-### ➡️ M3 — Define types and seed static project data
+### ✅ M3 — Define types and seed static project data
 
 -   **Purpose**: Add `Project` domain types and sample `projects` data file.
 -   **Files**: `src/types/project.ts`, `src/data/projects.ts` with 2–3 entries.
@@ -95,7 +95,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Test plan**:
     -   Import `projects` into `HomePage` and `console.log` length in dev.
 
-### M4 — Home page with project list
+### ➡️ M4 — Home page with project list
 
 -   **Purpose**: Create `HomePage` and a `ProjectCard` component to render projects.
 -   **Files**: `src/pages/HomePage/*`, `src/components/ProjectCard/*`, update `App.tsx` to render `HomePage`.
@@ -186,5 +186,6 @@ export interface ProjectLink {
 -   Backend/API: Persist user-curated projects.
 -   Individual project pages: Detailed project view with full description, screenshots, etc.
 -   Auth/multi-user
+-	Favorite your projects that you want to show first. Maybe filter by date
 
 ---
