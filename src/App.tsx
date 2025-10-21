@@ -8,9 +8,6 @@ function App() {
 			<div className="min-h-screen bg-gray-50">
 				<Header />
 				<main className="container mx-auto px-4 py-8">
-					<h1 className="text-4xl font-bold text-center text-gray-900 mb-8">
-						Hello Skillcase
-					</h1>
 					<Routes>
 						{routes.map((route) => (
 							<Route

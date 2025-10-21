@@ -1,4 +1,4 @@
-import { projects } from "../data/projects";
+import HomePage from "../pages/HomePage";
 
 const NotFound = () => (
 	<div className="text-center">
@@ -14,14 +14,7 @@ const NotFound = () => (
 export const routes = [
 	{
 		path: "/",
-		element: (
-			<div className="text-center">
-				<p className="text-lg text-gray-600">Welcome to Skillcase!</p>
-				<p className="text-sm text-gray-500 mt-2">
-					Projects loaded: {projects.length}
-				</p>
-			</div>
-		),
+		element: <HomePage />,
 	},
 	{
 		path: "*",
