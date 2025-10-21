@@ -13,6 +13,7 @@ This is a learning project for AI-assisted coding using Cursor. The goal is to b
 -   Use Prettier with tab configuration for automatic formatting
 -   Prefer concrete names over abstractions
 -   Include tests for each milestone (unit/integration), or show test plan if full tests are heavy
+-   **Naming**: Choose distinct, descriptive names that clearly communicate purpose - don't just use literal user suggestions if better alternatives exist
 
 ## Development Approach
 
@@ -57,6 +58,7 @@ Act as both a practical developer and tutor:
 -   List at least ONE potential issue and how to test for it
 -   Politely correct misguided instructions and propose safer plans
 -   Focus on teaching system design, tech stack integration, and clean coding
+-   **Push back** on changes that don't align with good practices or project goals
 
 ## Error Handling & Safety
 
