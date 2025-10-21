@@ -74,3 +74,4 @@ Act as both a practical developer and tutor:
 -   Write clear README files with setup instructions
 -   Document API endpoints and data structures
 -   Keep documentation minimal but useful
+-   **Always update spec.md when changes are made to the design or milestone status**

@@ -1,30 +1,16 @@
-## Skillcase Portfolio - Specification (Iteration 0: Static Site)
+# Skillcase Portfolio - Specification
 
-### Goals for this phase
+## Overview
 
--   **Static portfolio**: Display projects from local data (JSON/TS), no external API calls.
--   **Clean file structure**: Clear separation of UI, types, data, and utilities.
--   **TypeScript-first**: Strong types for project data and components.
--   **Small iterations**: Each milestone produces a minimal, reviewable diff (≤300 LOC).
+A static portfolio site built with React + TypeScript + Vite + Tailwind. Displays projects from local data with clean, responsive design.
 
-### Tech Stack (current phase)
+**Goals**: Static portfolio, clean file structure, TypeScript-first, small iterations (≤300 LOC per milestone)
 
--   **Frontend**: React + TypeScript
--   **Build**: Vite
--   **Styling**: Tailwind CSS (utility-first)
--   **Routing**: `react-router-dom` (included from M0)
--   **State**: Local component state only
--   **Data**: Local `projects` data file
+**Tech Stack**: React + TypeScript, Vite, Tailwind CSS, react-router-dom, Bun
 
-### High-Level Architecture (static)
+**Architecture**: App shell renders layout (header, main, footer). HomePage lists projects, reusable components like ProjectCard/Header. Central Project interface ensures consistent data from local `src/data/projects.ts`.
 
--   **App shell**: `App` renders layout (header, main, footer)
--   **Pages**: `HomePage` (list of projects), future `ProjectPage` (per-project)
--   **UI components**: Reusable components like `ProjectCard`, `Header`, `Footer`
--   **Domain types**: Central `Project` interface ensures consistent data
--   **Data source**: Local `src/data/projects.ts` during static phase
-
-### Proposed File Structure (initial)
+### File Structure
 
 ```
 skillcase/
@@ -65,7 +51,7 @@ skillcase/
 
 ---
 
-## Milestones (Iteration Plan)
+## Milestones
 
 Each milestone includes a purpose, expected files touched, acceptance criteria, and a simple test plan. Diffs should be minimal and focused.
 
@@ -76,7 +62,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Acceptance criteria**: Clear, actionable spec with defined milestones and tech stack.
 -   **Test plan**: Review spec for completeness and clarity.
 
-### ➡️ M1 — Bootstrap Vite + TypeScript + Tailwind + Router
+### ✅ M1 — Bootstrap Vite + TypeScript + Tailwind + Router
 
 -   **Purpose**: Initialize Vite React + TS app with Tailwind and routing from the start.
 -   **Files (new/updated)**: `package.json`, `tsconfig.json`, `vite.config.ts`, `tailwind.config.ts`, `postcss.config.js`, `index.html`, `src/main.tsx`, `src/App.tsx`, `src/styles/tailwind.css`, `src/routes/index.tsx`.
@@ -89,17 +75,17 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
     -   Modify text in `App.tsx`; hot reload works.
     -   Navigate to `/not-a-page`; see 404 message.
 
-### M2 — Establish file structure and layout (Tailwind)
+### ✅ M2 — Establish file structure and layout (Tailwind)
 
--   **Purpose**: Create directories, Tailwind base stylesheet, and `Header`/`Footer` scaffolding.
--   **Files**: Create `src/components/Header/*`, `src/components/Footer/*`, ensure `src/styles/tailwind.css` imported. Wire into `App.tsx`.
+-   **Purpose**: Create directories and `Header` scaffolding with responsive layout.
+-   **Files**: Create `src/components/Header.tsx`, wire into `App.tsx`.
 -   **Acceptance criteria**:
-    -   `Header` shows site title; `Footer` shows copyright year.
+    -   `Header` shows site title.
     -   Layout uses semantic HTML and is responsive at basic breakpoints.
 -   **Test plan**:
     -   Inspect DOM in DevTools; header and footer present across the app.
 
-### M3 — Define types and seed static project data
+### ➡️ M3 — Define types and seed static project data
 
 -   **Purpose**: Add `Project` domain types and sample `projects` data file.
 -   **Files**: `src/types/project.ts`, `src/data/projects.ts` with 2–3 entries.
@@ -138,7 +124,63 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Test plan**:
     -   Add a new sample project; ensure it appears correctly.
 
-### Deferred (future phases, out of scope now)
+---
+
+## Data Models & Standards
+
+### Project Interface
+
+```typescript
+// src/types/project.ts
+export interface Project {
+	id: string; // slug-like id
+	title: string;
+	description: string;
+	technologies: string[]; // simple array of tech names
+	links: ProjectLink[];
+	datePosted: string; // ISO date string
+}
+
+export interface ProjectLink {
+	type: string; // "repo", "demo", "docs", etc.
+	url: string;
+}
+```
+
+### Key Design Decisions
+
+-   **File Structure**: Flattened components (no folders until needed)
+-   **TypeScript**: Omit `.tsx` extensions in local imports
+-   **Routing**: Centralized route config in `src/routes/index.tsx`
+-   **Styling**: Tailwind utility-first approach
+-   **Data**: Local TypeScript files, no external APIs in static phase
+
+### Coding Standards
+
+-   TypeScript everywhere, descriptive names, small focused components
+-   Tailwind utility-first styling with consistent spacing/color tokens
+-   Minimal comments; rely on expressive identifiers and component boundaries
+-   Each milestone includes a tiny, runnable diff with a one-line manual test
+-   **Naming**: Choose distinct, descriptive names that clearly communicate purpose - don't just use literal user suggestions if better alternatives exist
+
+### Risks and Mitigations
+
+-   **Overengineering**: Keep milestones tiny; defer features until actually needed
+-   **Design drift**: Centralize tokens in `tailwind.config.ts` to maintain consistency
+-   **Type sprawl**: Keep domain types in `src/types/project.ts` with tight exports
+-   **Spec drift**: Always update spec.md when making architectural changes
+
+### Review Checklist per Milestone
+
+-   Does the diff match the milestone scope only?
+-   Are names clear and types precise?
+-   Is the code runnable with a simple manual test?
+-   Are files placed according to the proposed structure?
+-   Is the spec.md updated to reflect any architectural changes?
+
+---
+
+## Deferred Features
 
 -   GitHub integration: Fetch repo metadata, generate descriptions, stars, languages.
 -   Backend/API: Persist user-curated projects.
