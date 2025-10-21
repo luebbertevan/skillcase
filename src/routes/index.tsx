@@ -1,5 +1,3 @@
-import { createElement } from "react";
-
 const NotFound = () => (
 	<div className="text-center">
 		<h2 className="text-2xl font-semibold text-gray-700 mb-4">
@@ -14,18 +12,14 @@ const NotFound = () => (
 export const routes = [
 	{
 		path: "/",
-		element: createElement(
-			"div",
-			{ className: "text-center" },
-			createElement(
-				"p",
-				{ className: "text-lg text-gray-600" },
-				"Welcome to Skillcase!"
-			)
+		element: (
+			<div className="text-center">
+				<p className="text-lg text-gray-600">Welcome to Skillcase!</p>
+			</div>
 		),
 	},
 	{
 		path: "*",
-		element: createElement(NotFound),
+		element: <NotFound />,
 	},
 ];
