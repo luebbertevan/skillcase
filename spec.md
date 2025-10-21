@@ -89,7 +89,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
     -   Modify text in `App.tsx`; hot reload works.
     -   Navigate to `/not-a-page`; see 404 message.
 
-### ➡️ M2 — Establish file structure and layout (Tailwind)
+### ✅ M2 — Establish file structure and layout (Tailwind)
 
 -   **Purpose**: Create directories and `Header` scaffolding with responsive layout.
 -   **Files**: Create `src/components/Header.tsx`, wire into `App.tsx`.
@@ -99,7 +99,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Test plan**:
     -   Inspect DOM in DevTools; header and footer present across the app.
 
-### M3 — Define types and seed static project data
+### ➡️ M3 — Define types and seed static project data
 
 -   **Purpose**: Add `Project` domain types and sample `projects` data file.
 -   **Files**: `src/types/project.ts`, `src/data/projects.ts` with 2–3 entries.
