@@ -65,6 +65,37 @@ skillcase/
 
 ---
 
+## Data Models
+
+### Project Interface
+
+```typescript
+// src/types/project.ts
+export interface Project {
+	id: string; // slug-like id
+	title: string;
+	description: string;
+	technologies: string[]; // simple array of tech names
+	links: ProjectLink[];
+	datePosted: string; // ISO date string
+}
+
+export interface ProjectLink {
+	type: string; // "repo", "demo", "docs", etc.
+	url: string;
+}
+```
+
+### Key Design Decisions
+
+-   **File Structure**: Flattened components (no folders until needed)
+-   **TypeScript**: Omit `.tsx` extensions in local imports
+-   **Routing**: Centralized route config in `src/routes/index.tsx`
+-   **Styling**: Tailwind utility-first approach
+-   **Data**: Local TypeScript files, no external APIs in static phase
+
+---
+
 ## Milestones (Iteration Plan)
 
 Each milestone includes a purpose, expected files touched, acceptance criteria, and a simple test plan. Diffs should be minimal and focused.
@@ -137,6 +168,33 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
     -   Adding a new project is a single append in `projects.ts` with types enforced.
 -   **Test plan**:
     -   Add a new sample project; ensure it appears correctly.
+
+---
+
+## Coding Standards
+
+-   TypeScript everywhere, descriptive names, small focused components
+-   Tailwind utility-first styling with consistent spacing/color tokens
+-   Minimal comments; rely on expressive identifiers and component boundaries
+-   Each milestone includes a tiny, runnable diff with a one-line manual test
+-   **Naming**: Choose distinct, descriptive names that clearly communicate purpose - don't just use literal user suggestions if better alternatives exist
+
+## Risks and Mitigations
+
+-   **Overengineering**: Keep milestones tiny; defer features until actually needed
+-   **Design drift**: Centralize tokens in `tailwind.config.ts` to maintain consistency
+-   **Type sprawl**: Keep domain types in `src/types/project.ts` with tight exports
+-   **Spec drift**: Always update spec.md when making architectural changes
+
+## Review Checklist per Milestone
+
+-   Does the diff match the milestone scope only?
+-   Are names clear and types precise?
+-   Is the code runnable with a simple manual test?
+-   Are files placed according to the proposed structure?
+-   Is the spec.md updated to reflect any architectural changes?
+
+---
 
 ### Deferred (future phases, out of scope now)
 
