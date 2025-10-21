@@ -1,30 +1,16 @@
-## Skillcase Portfolio - Specification (Iteration 0: Static Site)
+# Skillcase Portfolio - Specification
 
-### Goals for this phase
+## Overview
 
--   **Static portfolio**: Display projects from local data (JSON/TS), no external API calls.
--   **Clean file structure**: Clear separation of UI, types, data, and utilities.
--   **TypeScript-first**: Strong types for project data and components.
--   **Small iterations**: Each milestone produces a minimal, reviewable diff (≤300 LOC).
+A static portfolio site built with React + TypeScript + Vite + Tailwind. Displays projects from local data with clean, responsive design.
 
-### Tech Stack (current phase)
+**Goals**: Static portfolio, clean file structure, TypeScript-first, small iterations (≤300 LOC per milestone)
 
--   **Frontend**: React + TypeScript
--   **Build**: Vite
--   **Styling**: Tailwind CSS (utility-first)
--   **Routing**: `react-router-dom` (included from M0)
--   **State**: Local component state only
--   **Data**: Local `projects` data file
+**Tech Stack**: React + TypeScript, Vite, Tailwind CSS, react-router-dom, Bun
 
-### High-Level Architecture (static)
+**Architecture**: App shell renders layout (header, main, footer). HomePage lists projects, reusable components like ProjectCard/Header. Central Project interface ensures consistent data from local `src/data/projects.ts`.
 
--   **App shell**: `App` renders layout (header, main, footer)
--   **Pages**: `HomePage` (list of projects), future `ProjectPage` (per-project)
--   **UI components**: Reusable components like `ProjectCard`, `Header`, `Footer`
--   **Domain types**: Central `Project` interface ensures consistent data
--   **Data source**: Local `src/data/projects.ts` during static phase
-
-### Proposed File Structure (initial)
+### File Structure
 
 ```
 skillcase/
@@ -65,38 +51,7 @@ skillcase/
 
 ---
 
-## Data Models
-
-### Project Interface
-
-```typescript
-// src/types/project.ts
-export interface Project {
-	id: string; // slug-like id
-	title: string;
-	description: string;
-	technologies: string[]; // simple array of tech names
-	links: ProjectLink[];
-	datePosted: string; // ISO date string
-}
-
-export interface ProjectLink {
-	type: string; // "repo", "demo", "docs", etc.
-	url: string;
-}
-```
-
-### Key Design Decisions
-
--   **File Structure**: Flattened components (no folders until needed)
--   **TypeScript**: Omit `.tsx` extensions in local imports
--   **Routing**: Centralized route config in `src/routes/index.tsx`
--   **Styling**: Tailwind utility-first approach
--   **Data**: Local TypeScript files, no external APIs in static phase
-
----
-
-## Milestones (Iteration Plan)
+## Milestones
 
 Each milestone includes a purpose, expected files touched, acceptance criteria, and a simple test plan. Diffs should be minimal and focused.
 
@@ -171,7 +126,36 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 
 ---
 
-## Coding Standards
+## Data Models & Standards
+
+### Project Interface
+
+```typescript
+// src/types/project.ts
+export interface Project {
+	id: string; // slug-like id
+	title: string;
+	description: string;
+	technologies: string[]; // simple array of tech names
+	links: ProjectLink[];
+	datePosted: string; // ISO date string
+}
+
+export interface ProjectLink {
+	type: string; // "repo", "demo", "docs", etc.
+	url: string;
+}
+```
+
+### Key Design Decisions
+
+-   **File Structure**: Flattened components (no folders until needed)
+-   **TypeScript**: Omit `.tsx` extensions in local imports
+-   **Routing**: Centralized route config in `src/routes/index.tsx`
+-   **Styling**: Tailwind utility-first approach
+-   **Data**: Local TypeScript files, no external APIs in static phase
+
+### Coding Standards
 
 -   TypeScript everywhere, descriptive names, small focused components
 -   Tailwind utility-first styling with consistent spacing/color tokens
@@ -179,14 +163,14 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   Each milestone includes a tiny, runnable diff with a one-line manual test
 -   **Naming**: Choose distinct, descriptive names that clearly communicate purpose - don't just use literal user suggestions if better alternatives exist
 
-## Risks and Mitigations
+### Risks and Mitigations
 
 -   **Overengineering**: Keep milestones tiny; defer features until actually needed
 -   **Design drift**: Centralize tokens in `tailwind.config.ts` to maintain consistency
 -   **Type sprawl**: Keep domain types in `src/types/project.ts` with tight exports
 -   **Spec drift**: Always update spec.md when making architectural changes
 
-## Review Checklist per Milestone
+### Review Checklist per Milestone
 
 -   Does the diff match the milestone scope only?
 -   Are names clear and types precise?
@@ -196,7 +180,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 
 ---
 
-### Deferred (future phases, out of scope now)
+## Deferred Features
 
 -   GitHub integration: Fetch repo metadata, generate descriptions, stars, languages.
 -   Backend/API: Persist user-curated projects.
