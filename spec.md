@@ -76,7 +76,7 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
 -   **Acceptance criteria**: Clear, actionable spec with defined milestones and tech stack.
 -   **Test plan**: Review spec for completeness and clarity.
 
-### ➡️ M1 — Bootstrap Vite + TypeScript + Tailwind + Router
+### ✅ M1 — Bootstrap Vite + TypeScript + Tailwind + Router
 
 -   **Purpose**: Initialize Vite React + TS app with Tailwind and routing from the start.
 -   **Files (new/updated)**: `package.json`, `tsconfig.json`, `vite.config.ts`, `tailwind.config.ts`, `postcss.config.js`, `index.html`, `src/main.tsx`, `src/App.tsx`, `src/styles/tailwind.css`, `src/routes/index.tsx`.
@@ -89,12 +89,12 @@ Each milestone includes a purpose, expected files touched, acceptance criteria, 
     -   Modify text in `App.tsx`; hot reload works.
     -   Navigate to `/not-a-page`; see 404 message.
 
-### M2 — Establish file structure and layout (Tailwind)
+### ➡️ M2 — Establish file structure and layout (Tailwind)
 
--   **Purpose**: Create directories, Tailwind base stylesheet, and `Header`/`Footer` scaffolding.
--   **Files**: Create `src/components/Header/*`, `src/components/Footer/*`, ensure `src/styles/tailwind.css` imported. Wire into `App.tsx`.
+-   **Purpose**: Create directories and `Header` scaffolding with responsive layout.
+-   **Files**: Create `src/components/Header.tsx`, wire into `App.tsx`.
 -   **Acceptance criteria**:
-    -   `Header` shows site title; `Footer` shows copyright year.
+    -   `Header` shows site title.
     -   Layout uses semantic HTML and is responsive at basic breakpoints.
 -   **Test plan**:
     -   Inspect DOM in DevTools; header and footer present across the app.
