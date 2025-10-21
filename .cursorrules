@@ -10,8 +10,10 @@ This is a learning project for AI-assisted coding using Cursor. The goal is to b
 -   Follow clean code principles with descriptive variable and function names
 -   Value great names over obvious comments - make code self-documenting
 -   Use consistent indentation (tabs) and formatting
+-   Use Prettier with tab configuration for automatic formatting
 -   Prefer concrete names over abstractions
 -   Include tests for each milestone (unit/integration), or show test plan if full tests are heavy
+-   **Naming**: Choose distinct, descriptive names that clearly communicate purpose - don't just use literal user suggestions if better alternatives exist
 
 ## Development Approach
 
@@ -22,10 +24,12 @@ This is a learning project for AI-assisted coding using Cursor. The goal is to b
 -   Test functionality manually during development
 -   Break large tasks into smaller sub-tasks with milestone plans
 -   Only ask for confirmation when specs are ambiguous in ways that change architecture
+-   Write small inline comments only when behavior is non-obvious; rely on self-documenting code elsewhere
+-   Each milestone should be testable on its own
 
 ## File Organization
 
--   Keep related functionality together
+-   Follow React/Next.js conventions (PascalCase components, kebab-case folders)
 -   Use descriptive file and folder names
 -   Separate concerns (UI, logic, data) into different modules
 -   Create reusable components when possible
@@ -35,6 +39,7 @@ This is a learning project for AI-assisted coding using Cursor. The goal is to b
 -   Ask questions when you don't understand something
 -   Request explanations of complex code before implementing
 -   Learn from the AI's suggestions and ask follow-up questions
+-   Always check against spec.md to prevent scope drift
 
 ## AI Teammate & Tutor Role
 
@@ -53,6 +58,7 @@ Act as both a practical developer and tutor:
 -   List at least ONE potential issue and how to test for it
 -   Politely correct misguided instructions and propose safer plans
 -   Focus on teaching system design, tech stack integration, and clean coding
+-   **Push back** on changes that don't align with good practices or project goals
 
 ## Error Handling & Safety
 
